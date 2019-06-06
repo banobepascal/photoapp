@@ -73,6 +73,6 @@ func SignUp(w http.ResponseWriter, req *http.Request) {
 
 }
 
-func login(){
-	
+func login(w http.ResponseWriter, req *http.Request) {
+
 }
