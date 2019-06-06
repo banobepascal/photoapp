@@ -71,5 +71,6 @@ func SignUp(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-
 }
+
+func login()
