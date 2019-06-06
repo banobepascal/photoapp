@@ -23,6 +23,8 @@ var dbSessions = map[string]string{}
 
 func main() {
 
+	http.ListenAndServe(":8080", http.FileServer(http.Dir("templates/*")))
+
 }
 
 func SignUp(w http.ResponseWriter, req *http.Request) {
@@ -74,5 +76,5 @@ func SignUp(w http.ResponseWriter, req *http.Request) {
 }
 
 func login(w http.ResponseWriter, req *http.Request) {
- 
+
 }
