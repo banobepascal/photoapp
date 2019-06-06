@@ -23,8 +23,13 @@ var dbSessions = map[string]string{}
 
 func main() {
 
-	http.ListenAndServe(":8080", http.FileServer(http.Dir("templates/*")))
+	http.HandleFunc("/", SignUp)
+	http.ListenAndServe(":8080", nil)
 
+}
+
+func init() {
+	tpl = template.Must(template.ParseGlob("templates/*"))
 }
 
 func SignUp(w http.ResponseWriter, req *http.Request) {
@@ -72,6 +77,7 @@ func SignUp(w http.ResponseWriter, req *http.Request) {
 		http.Redirect(w, req, "/", http.StatusSeeOther)
 		return
 	}
+	tpl.ExecuteTemplate(w, "index.html", nil)
 
 }
 
