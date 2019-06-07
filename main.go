@@ -44,7 +44,7 @@ func userPage(w http.ResponseWriter, req *http.Request) {
 		http.Error(w, "You are not logged in", http.StatusSeeOther)
 		return
 	}
-	tpl.ExecuteTemplate(w, "user.html", u)
+	tpl.ExecuteTemplate(w, "index.html", u)
 }
 
 func SignUp(w http.ResponseWriter, req *http.Request) {
