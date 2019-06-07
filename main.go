@@ -91,17 +91,17 @@ func login(w http.ResponseWriter, req *http.Request) {
 	if req.Method == http.MethodPost {
 		// get values
 		un := req.FormValue("username")
-		p := req.FormValue("password")	
+		p := req.FormValue("password")
 
 		// username availabilty
-		dbUsers[un], ok
+		u, ok := dbUsers[un]
 		if !ok {
 			http.Error(w, "username not available", http.StatusForbidden)
 			return
 		}
 
 		// match username to password
-		bs, err := bcrypt.CompareHashAndPassword(u.Password, []byte(p))
+		err := bcrypt.CompareHashAndPassword(u.Password, []byte(p))
 		if err != nil {
 			http.Error(w, "username and password dont match", http.StatusForbidden)
 			return
@@ -110,7 +110,7 @@ func login(w http.ResponseWriter, req *http.Request) {
 		// cookie session
 		sID, _ := uuid.NewV4()
 		c := &http.Cookie{
-			Name: "session",
+			Name:  "session",
 			Value: sID.String(),
 		}
 		http.SetCookie(w, c)
