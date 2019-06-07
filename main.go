@@ -24,6 +24,7 @@ var dbSessions = map[string]string{}
 func main() {
 
 	http.HandleFunc("/", SignUp)
+	http.HandleFunc("/login", login)
 	http.ListenAndServe(":8080", nil)
 
 }
