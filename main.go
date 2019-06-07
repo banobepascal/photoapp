@@ -106,7 +106,15 @@ func login(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, "username and password dont match", http.StatusForbidden)
 			return
 		}
-		
+
+		// cookie session
+		sID, _ := uuid.NewV4()
+		c := &http.Cookie{
+			Name: "session",
+			Value: sID.String(),
+		}
+		http.SetCookie(w, c)
+
 	}
 
 }
