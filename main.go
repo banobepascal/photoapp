@@ -99,6 +99,9 @@ func login(w http.ResponseWriter, req *http.Request) {
 			http.Error(w, "username not available", http.StatusForbidden)
 			return
 		}
+
+		// match username to password
+		
 	}
 
 }
