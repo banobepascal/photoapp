@@ -101,6 +101,11 @@ func login(w http.ResponseWriter, req *http.Request) {
 		}
 
 		// match username to password
+		bs, err := bcrypt.CompareHashAndPassword(u.Password, []byte(p))
+		if err != nil {
+			http.Error(w, "username and password dont match", http.StatusForbidden)
+			return
+		}
 		
 	}
 
