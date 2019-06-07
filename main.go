@@ -88,7 +88,7 @@ func SignUp(w http.ResponseWriter, req *http.Request) {
 		http.Redirect(w, req, "/", http.StatusSeeOther)
 		return
 	}
-	tpl.ExecuteTemplate(w, "index.html", nil)
+	tpl.ExecuteTemplate(w, "signup.html", nil)
 
 }
 
