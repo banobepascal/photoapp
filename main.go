@@ -33,6 +33,10 @@ func init() {
 	tpl = template.Must(template.ParseGlob("templates/*"))
 }
 
+func userPage(w http.ResponseWriter, req *http.Request) {
+	u := 
+}
+
 func SignUp(w http.ResponseWriter, req *http.Request) {
 	if alreadyLogin(req) {
 		http.Redirect(w, req, "/", http.StatusSeeOther)
