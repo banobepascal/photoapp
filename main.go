@@ -89,7 +89,7 @@ func SignUp(w http.ResponseWriter, req *http.Request) {
 		dbUsers[un] = u
 
 		// redirect
-		http.Redirect(w, req, "/user", http.StatusSeeOther)
+		http.Redirect(w, req, "/userPage", http.StatusSeeOther)
 		return
 	}
 	tpl.ExecuteTemplate(w, "signup.html", nil)
