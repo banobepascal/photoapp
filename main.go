@@ -82,7 +82,23 @@ func SignUp(w http.ResponseWriter, req *http.Request) {
 }
 
 func login(w http.ResponseWriter, req *http.Request) {
+	if alreadyLogin(req) {
+		http.Redirect(w, req, "/", http.StatusSeeOther)
+		return
+	}
 
-	
+	// form values
+	if req.Method == http.MethodPost {
+		// get values
+		un := req.FormValue("username")
+		p := req.FormValue("password")	
+
+		// username availabilty
+		dbUsers[un], ok
+		if !ok {
+			http.Error(w, "username not available", http.StatusForbidden)
+			return
+		}
+	}
 
 }
