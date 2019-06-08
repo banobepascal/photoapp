@@ -26,7 +26,6 @@ func main() {
 	http.HandleFunc("/", SignUp)
 	http.HandleFunc("/login", login)
 	http.HandleFunc("/userPage", userPage)
-	http.Handle("/css/", http.FileServer(http.Dir("public")))
 	http.Handle("/images/", http.FileServer(http.Dir("public")))
 	http.Handle("/demo-images/", http.FileServer(http.Dir("public")))
 	http.Handle("/js/", http.FileServer(http.Dir("public")))
